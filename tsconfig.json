@@ -4,5 +4,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "allowJs": true,
+    "lib": ["DOM", "ESNext"],
+    "target": "ESNext"
   }
 }
