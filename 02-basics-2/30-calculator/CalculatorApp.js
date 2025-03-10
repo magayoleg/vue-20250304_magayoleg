@@ -22,16 +22,8 @@ export default defineComponent({
       }
     }
 
-    watch(firstOperand, (newFirstOperand) => {
-      count.value = calculation(newFirstOperand, secondOperand.value, operator.value)
-    });
-
-    watch(secondOperand, (newSecondOperand) => {
-      count.value = calculation(firstOperand.value, newSecondOperand, operator.value)
-    });
-
-    watch(operator, (operator) => {
-      count.value = calculation(firstOperand.value, secondOperand.value, operator)
+    watch([firstOperand, secondOperand, operator], () => {
+      count.value = calculation(firstOperand.value, secondOperand.value, operator.value)
     });
 
     return {
