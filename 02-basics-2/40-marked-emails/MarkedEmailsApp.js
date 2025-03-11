@@ -34,14 +34,9 @@ export default defineComponent({
   setup() {
     const search = ref('');
 
-    const filteredEmails = computed(() => {
-      return emails.filter((email) => email.includes(search.value))
-    });
-
     return {
       search,
       emails,
-      filteredEmails
     }
   },
 
@@ -51,7 +46,7 @@ export default defineComponent({
         <input type="search" aria-label="Search" v-model="search"/>
       </div>
       <ul aria-label="Emails" v-for="email in emails">
-        <li :class="{ marked: search && filteredEmails.includes(email) }">{{ email }}</li>
+        <li :class="{ marked: search && email.includes(search) }">{{ email }}</li>
       </ul>
     </div>
   `,
