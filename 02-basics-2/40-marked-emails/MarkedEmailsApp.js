@@ -34,9 +34,16 @@ export default defineComponent({
   setup() {
     const search = ref('');
 
+const foundEmails = computed(() => {
+  return emails.map(email => {
+    return {address: email, marked: search.value && email.includes(search.value)};
+  })
+});
+
+
     return {
       search,
-      emails,
+      foundEmails,
     }
   },
 
@@ -45,8 +52,8 @@ export default defineComponent({
       <div class="form-group">
         <input type="search" aria-label="Search" v-model="search"/>
       </div>
-      <ul aria-label="Emails" v-for="email in emails">
-        <li :class="{ marked: search && email.includes(search) }">{{ email }}</li>
+      <ul aria-label="Emails" v-for="{address, marked} in foundEmails">
+        <li :class="{ marked }">{{ address }}</li>
       </ul>
     </div>
   `,
