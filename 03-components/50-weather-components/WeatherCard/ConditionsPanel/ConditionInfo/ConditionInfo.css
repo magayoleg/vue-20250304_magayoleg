@@ -1,0 +1,8 @@
+.condition-info__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.condition-info__item-label {
+  color: var(--grey-8);
+}
