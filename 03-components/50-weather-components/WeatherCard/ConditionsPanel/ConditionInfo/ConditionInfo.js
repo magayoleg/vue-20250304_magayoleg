@@ -17,9 +17,9 @@ export const ConditionInfo = defineComponent({
   },
 
   template: `
-    <div class="condition-info__item">
-      <div class="condition-info__item-label">{{ conditionName }}</div>
-      <div class="condition-info__item-value">{{ conditionValue }}</div>
+    <div class="weather-details__item">
+      <div class="weather-details__item-label">{{ conditionName }}</div>
+      <div class="weather-details__item-value">{{ conditionValue }}</div>
     </div>
   `,
 })

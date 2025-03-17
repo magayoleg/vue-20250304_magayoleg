@@ -16,15 +16,15 @@ export const WeatherInfo = defineComponent({
     },
 
     temp: {
-      type: Number,
+      type: String,
       required: true,
     },
   },
 
   template: `
-    <div class="weather-info">
-      <div class="weather-info__icon" :title="title">{{ icon }}</div>
-      <div class="weather-info__temp">{{ temp }} °C</div>
+    <div class="weather-conditions">
+      <div class="weather-conditions__icon" :title="title">{{ icon }}</div>
+      <div class="weather-conditions__temp">{{ temp }} °C</div>
     </div>
   `,
 })

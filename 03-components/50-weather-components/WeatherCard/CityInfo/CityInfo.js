@@ -18,7 +18,7 @@ export const CityInfo = defineComponent({
 
   template: `
     <div>
-      <h2 class="city-info__name">{{ city }}</h2>
+      <h2 class="weather-card__name">{{ city }}</h2>
       <div class="weather-card__time">{{ time }}</div>
     </div>
   `,

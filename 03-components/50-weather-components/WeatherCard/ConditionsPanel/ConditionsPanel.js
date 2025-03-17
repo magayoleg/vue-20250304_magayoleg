@@ -60,7 +60,7 @@ export const ConditionsPanel = defineComponent({
   },
 
   template: `
-    <div class="conditions-panel">
+    <div class="weather-details">
       <ConditionInfo
         v-for="condition in conditionsList"
         :key="condition.conditionName"

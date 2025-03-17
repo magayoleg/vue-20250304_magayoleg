@@ -11,6 +11,6 @@
   margin: 0;
 }
 
-.weather-card_night {
+.weather-card--night {
   background-color: #dee1e1;
 }

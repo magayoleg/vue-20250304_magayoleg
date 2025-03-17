@@ -1,8 +1,8 @@
-.condition-info__item {
+.weather-details__item {
   display: flex;
   flex-direction: column;
 }
 
-.condition-info__item-label {
+.weather-details__item-label {
   color: var(--grey-8);
 }

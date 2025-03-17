@@ -1,7 +1,7 @@
-.city-info__name {
+.weather-card__name {
   margin: 0;
 }
 
-.city-info__time {
+.weather-card__time {
   color: var(--grey-8);
 }

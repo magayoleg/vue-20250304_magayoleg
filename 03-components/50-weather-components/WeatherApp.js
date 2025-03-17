@@ -4,6 +4,8 @@ import './WeatherApp.css'
 import { WeatherTitle } from './WeatherTitle'
 import { WeatherCard } from './WeatherCard'
 
+const weather = getWeatherData()
+
 export default defineComponent({
   name: 'WeatherApp',
 
@@ -13,22 +15,20 @@ export default defineComponent({
   },
 
   setup() {
-    const weatherData = ref(null)
+    const weatherData = ref([])
 
-    onMounted(() => {
-      const weather = getWeatherData()
-      weatherData.value = weather.map(({ geographic_name, current, alert }) => ({
-        geographic_name,
-        alert,
-        current: {
-          ...current,
-          weather: {
-            ...current.weather,
-            icon: WeatherConditionIcons[current.weather.id],
-          },
+    weatherData.value = weather.map(({ geographic_name, current, alert }) => ({
+      geographic_name,
+      alert,
+      current: {
+        ...current,
+        weather: {
+          ...current.weather,
+          icon: WeatherConditionIcons[current.weather.id],
         },
-      }))
-    })
+      },
+    }))
+
     return {
       weatherData,
     }

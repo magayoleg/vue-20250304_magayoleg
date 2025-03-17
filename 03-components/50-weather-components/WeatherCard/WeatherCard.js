@@ -116,11 +116,11 @@ export const WeatherCard = defineComponent({
 
   setup(props) {
     const kelvinToCelsius = computed(() => {
-      return (-273.15 + props.weatherInfo.current.temp).toFixed(1)
+      return (-273.15 + props.weatherInfo.current.temp).toFixed(1);
     })
 
     const hPaToMmHg = computed(() => {
-      return Math.round(props.weatherInfo.current.pressure * 0.75);
+      return Math.round(props.weatherInfo.current.pressure * 0.75)
     })
 
     return {
@@ -130,16 +130,16 @@ export const WeatherCard = defineComponent({
         humidity: props.weatherInfo.current.humidity,
         clouds: props.weatherInfo.current.clouds,
         windSpeed: props.weatherInfo.current.wind_speed,
-      }
+      },
     }
   },
 
   template: `
-    <li class="weather-card" :class="{ 'weather-card_night': weatherInfo.current.dt < weatherInfo.current.sunrise || weatherInfo.current.dt > weatherInfo.current.sunset }">
+    <li class="weather-card" :class="{ 'weather-card--night': weatherInfo.current.dt < weatherInfo.current.sunrise || weatherInfo.current.dt > weatherInfo.current.sunset }">
       <WeatherAlert v-if="weatherInfo.alert" :alert="weatherInfo.alert"/>
       <CityInfo :city="weatherInfo.geographic_name" :time="weatherInfo.current.dt"/>
       <WeatherInfo
-        :icon="weatherInfo.current.weather.icon"
+        :icon='weatherInfo.current.weather.icon'
         :title="weatherInfo.current.weather.description"
         :temp="temperature"
       />
