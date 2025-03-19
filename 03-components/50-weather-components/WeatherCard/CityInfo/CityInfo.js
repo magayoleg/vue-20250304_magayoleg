@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import './CityInfo.css'
 
-export const CityInfo = defineComponent({
+export default defineComponent({
   name: 'CityInfo',
 
   props: {

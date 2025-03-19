@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import './WeatherAlert.css'
 
-export const WeatherAlert = defineComponent({
+export default defineComponent({
   name: 'WeatherAlert',
 
   props: {

@@ -22,34 +22,6 @@ export default defineComponent({
     meetup: {
       type: Object,
       required: true,
-
-      title: {
-        type: String,
-      },
-
-      image: {
-        type: String,
-      },
-
-      description: {
-        type: String,
-      },
-
-      agenda: {
-        type: Array,
-      },
-
-      organizer: {
-        type: String,
-      },
-
-      place: {
-        type: String,
-      },
-
-      date: {
-        type: Number,
-      },
     },
   },
 

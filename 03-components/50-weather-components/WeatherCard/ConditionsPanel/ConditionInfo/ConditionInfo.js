@@ -1,7 +1,7 @@
 import { defineComponent } from 'vue'
 import './ConditionInfo.css'
 
-export const ConditionInfo = defineComponent({
+export default defineComponent({
   name: 'ConditionInfo',
 
   props: {

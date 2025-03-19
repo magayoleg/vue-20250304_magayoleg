@@ -27,7 +27,7 @@ export default defineComponent({
         :key="email"
         :email="email"
         :marked="isMarked"
-        @remove="() => removeEmailByIndex(index)"
+        @remove="removeEmailByIndex(index)"
       />
     </ul>
   `,

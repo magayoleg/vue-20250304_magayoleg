@@ -1,10 +1,11 @@
 import { defineComponent, computed } from 'vue'
 import './WeatherCard.css'
-import { WeatherAlert } from './WeatherAlert'
-import { CityInfo } from './CityInfo'
-import { WeatherInfo } from './WeatherInfo'
-import { ConditionsPanel } from './ConditionsPanel'
-export const WeatherCard = defineComponent({
+import WeatherAlert from './WeatherAlert/WeatherAlert'
+import CityInfo from './CityInfo/CityInfo'
+import WeatherInfo from './WeatherInfo/WeatherInfo'
+import ConditionsPanel from './ConditionsPanel/ConditionsPanel'
+
+export default defineComponent({
   name: 'WeatherCard',
 
   components: {
@@ -18,99 +19,6 @@ export const WeatherCard = defineComponent({
     weatherInfo: {
       type: Object,
       required: true,
-
-      alert: {
-        type: Object,
-
-        sender_name: {
-          type: String,
-          required: true,
-        },
-
-        description: {
-          type: String,
-          required: true,
-        },
-      },
-
-      geographic_name: {
-        type: String,
-        required: true,
-      },
-
-      current: {
-        type: Object,
-        required: true,
-
-        dt: {
-          type: String,
-          required: true,
-        },
-
-        sunrise: {
-          type: String,
-          required: true,
-        },
-
-        sunset: {
-          type: String,
-          required: true,
-        },
-
-        temp: {
-          type: Number,
-          required: true,
-        },
-
-        pressure: {
-          type: Number,
-          required: true,
-        },
-
-        humidity: {
-          type: Number,
-          required: true,
-        },
-
-        clouds: {
-          type: Number,
-          required: true,
-        },
-
-        visibility: {
-          type: Number,
-          required: true,
-        },
-
-        wind_speed: {
-          type: Number,
-          required: true,
-        },
-
-        weather: {
-          type: Object,
-          required: true,
-          id: {
-            type: Number,
-            required: true,
-          },
-
-          main: {
-            type: String,
-            required: true,
-          },
-
-          description: {
-            type: String,
-            required: true,
-          },
-
-          icon: {
-            type: String,
-            required: true,
-          },
-        },
-      },
     },
   },
 
@@ -139,8 +47,7 @@ export const WeatherCard = defineComponent({
       <WeatherAlert v-if="weatherInfo.alert" :alert="weatherInfo.alert"/>
       <CityInfo :city="weatherInfo.geographic_name" :time="weatherInfo.current.dt"/>
       <WeatherInfo
-        :icon='weatherInfo.current.weather.icon'
-        :title="weatherInfo.current.weather.description"
+        :weather="weatherInfo.current.weather"
         :temp="temperature"
       />
       <ConditionsPanel :conditions="conditions"/>

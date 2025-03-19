@@ -1,10 +1,8 @@
-import { defineComponent, onMounted, ref } from 'vue'
-import { getWeatherData, WeatherConditionIcons } from './weather.service.ts'
+import { defineComponent, computed } from 'vue'
+import { getWeatherData } from './weather.service.ts'
 import './WeatherApp.css'
-import { WeatherTitle } from './WeatherTitle'
-import { WeatherCard } from './WeatherCard'
-
-const weather = getWeatherData()
+import WeatherTitle from './WeatherTitle/WeatherTitle.js'
+import WeatherCard from './WeatherCard/WeatherCard.js'
 
 export default defineComponent({
   name: 'WeatherApp',
@@ -15,19 +13,7 @@ export default defineComponent({
   },
 
   setup() {
-    const weatherData = ref([])
-
-    weatherData.value = weather.map(({ geographic_name, current, alert }) => ({
-      geographic_name,
-      alert,
-      current: {
-        ...current,
-        weather: {
-          ...current.weather,
-          icon: WeatherConditionIcons[current.weather.id],
-        },
-      },
-    }))
+    const weatherData = computed(() => getWeatherData());
 
     return {
       weatherData,

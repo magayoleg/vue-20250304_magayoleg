@@ -1,6 +1,6 @@
 import { defineComponent, computed } from 'vue'
 import './ConditionsPanel.css'
-import { ConditionInfo } from './ConditionInfo'
+import ConditionInfo from './ConditionInfo/ConditionInfo'
 
 const CONDITION_NAME = {
   pressure: 'Давление, мм рт. ст.',
@@ -9,7 +9,7 @@ const CONDITION_NAME = {
   windSpeed: 'Ветер, м/с',
 }
 
-export const ConditionsPanel = defineComponent({
+export default defineComponent({
   name: 'ConditionsPanel',
 
   components: {
@@ -20,26 +20,6 @@ export const ConditionsPanel = defineComponent({
     conditions: {
       type: Object,
       required: true,
-
-      pressure: {
-        type: Object,
-        required: true,
-      },
-
-      humidity: {
-        type: Object,
-        required: true,
-      },
-
-      clouds: {
-        type: Object,
-        required: true,
-      },
-
-      windSpeed: {
-        type: Object,
-        required: true,
-      },
     },
   },
 

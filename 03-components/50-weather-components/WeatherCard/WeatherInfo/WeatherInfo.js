@@ -1,18 +1,14 @@
 import { defineComponent } from 'vue'
+import { WeatherConditionIcons } from '../../weather.service.ts'
 import './WeatherInfo.css'
 
-export const WeatherInfo = defineComponent({
+export default defineComponent({
   name: 'WeatherInfo',
 
   props: {
-    icon: {
-      type: String,
-      required: true,
-    },
-
-    title: {
-      type: String,
-      required: true,
+    weather: {
+      type: Object,
+      required: true
     },
 
     temp: {
@@ -21,9 +17,16 @@ export const WeatherInfo = defineComponent({
     },
   },
 
+  setup(props) {
+
+    return {
+      icon: WeatherConditionIcons[props.weather.id]
+    }
+  },
+
   template: `
     <div class="weather-conditions">
-      <div class="weather-conditions__icon" :title="title">{{ icon }}</div>
+      <div class="weather-conditions__icon" :title="weather.description">{{ icon }}</div>
       <div class="weather-conditions__temp">{{ temp }} °C</div>
     </div>
   `,
