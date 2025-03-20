@@ -1,0 +1,16 @@
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  box-shadow: 0 2px 16px #0000001f;
+  background-color: var(--white);
+}
+
+.weather-card__name {
+  margin: 0;
+}
+
+.weather-card--night {
+  background-color: #dee1e1;
+}

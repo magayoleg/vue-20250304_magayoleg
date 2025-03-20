@@ -1,0 +1,7 @@
+.weather-card__name {
+  margin: 0;
+}
+
+.weather-card__time {
+  color: var(--grey-8);
+}

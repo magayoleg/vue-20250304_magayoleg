@@ -1,0 +1,8 @@
+.weather-details__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.weather-details__item-label {
+  color: var(--grey-8);
+}
