@@ -14,8 +14,6 @@ export default defineComponent({
       return Math.round(pressure * 0.75);
     }
 
-    console.log(getWeatherData())
-
     return {
       weatherData: getWeatherData(),
       WeatherConditionIcons,
