@@ -1,18 +1,29 @@
-<script setup>
-// import type { MeetupDTO } from '@shgk/vue-course-ui'
+<script lang="ts">
+import type { MeetupDTO } from '@shgk/vue-course-ui'
 import { UiAlert, UiContainer } from '@shgk/vue-course-ui'
 import MeetupAgenda from './MeetupAgenda.vue'
 import MeetupDescription from './MeetupDescription.vue'
 import MeetupCover from './MeetupCover.vue'
 import MeetupInfo from './MeetupInfo.vue'
+import type { PropType } from 'vue'
 
-defineProps({
-  meetup: {
-    // Настоящий тип - MeetupDTO
-    type: Object,
-    required: true,
+export default {
+  components: {
+    UiAlert,
+    UiContainer,
+    MeetupAgenda,
+    MeetupDescription,
+    MeetupCover,
+    MeetupInfo,
   },
-})
+
+  props: {
+    meetup: {
+      type: Object as PropType<MeetupDTO>,
+      required: true,
+    },
+  },
+}
 </script>
 
 <template>

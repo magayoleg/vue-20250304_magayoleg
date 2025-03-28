@@ -1,18 +1,28 @@
-<script setup>
+<script lang="ts">
 import { computed } from 'vue'
+import type { PropType } from 'vue'
+import type { ValuesUnionTitlesType, ValuesUnionIconsType } from './Consts'
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
+export default {
+  props: {
+    title: {
+      type: String as PropType<ValuesUnionTitlesType>,
+      required: true,
+    },
+
+    image: {
+      type: String as PropType<ValuesUnionIconsType>,
+    },
   },
 
-  image: {
-    type: String,
-  },
-})
+  setup(props) {
+    const bgStyle = computed(() => (props.image ? { '--bg-url': `url('${props.image}')` } : undefined))
 
-const bgStyle = computed(() => (props.image ? { '--bg-url': `url('${props.image}')` } : undefined))
+    return {
+      bgStyle,
+    }
+  },
+}
 </script>
 
 <template>

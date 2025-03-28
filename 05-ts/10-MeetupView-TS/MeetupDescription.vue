@@ -1,9 +1,11 @@
-<script setup>
-defineProps({
-  description: {
-    type: String,
+<script lang="ts">
+export default {
+  props: {
+    description: {
+      type: String,
+    },
   },
-})
+}
 </script>
 
 <template>

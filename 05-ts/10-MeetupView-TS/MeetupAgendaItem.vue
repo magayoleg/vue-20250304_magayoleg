@@ -1,43 +1,34 @@
-<script setup>
-// import type { MeetupAgendaItemDTO } from '@shgk/vue-course-ui'
+<script lang="ts">
+import type { MeetupAgendaItemDTO } from '@shgk/vue-course-ui'
 import { computed } from 'vue'
+import type { PropType } from 'vue'
+import { AGENDA_ITEM_DEFAULT_TITLES, AGENDA_ITEM_ICONS } from './Consts'
+import type { ValuesUnionTitlesType, ValuesUnionIconsType } from './Consts'
 import { UiIcon } from '@shgk/vue-course-ui'
 
-const props = defineProps({
-  agendaItem: {
-    // Настоящий тип - MeetupAgendaItemDTO
-    type: Object,
-    required: true,
+export default {
+  components: {
+    UiIcon,
   },
-})
 
-const agendaItemDefaultTitles = {
-  registration: 'Регистрация',
-  opening: 'Открытие',
-  break: 'Перерыв',
-  coffee: 'Coffee Break',
-  closing: 'Закрытие',
-  afterparty: 'Afterparty',
-  talk: 'Доклад',
-  other: 'Другое',
+  props: {
+    agendaItem: {
+      // Настоящий тип - MeetupAgendaItemDTO
+      type: Object as PropType<MeetupAgendaItemDTO>,
+      required: true,
+    },
+  },
+
+  setup(props) {
+    const icon = computed<ValuesUnionIconsType>(() => AGENDA_ITEM_ICONS[props.agendaItem.type])
+    const title = computed<ValuesUnionTitlesType>(() => AGENDA_ITEM_DEFAULT_TITLES[props.agendaItem.type])
+
+    return {
+      icon,
+      title,
+    }
+  },
 }
-
-// ⚠️ Чтобы TS понимал, что этот объект - константа, и других значений здесь не будет - потребуется добавить `as const`
-// В противном случае TS не позволит передать значения этих полей в `icon` с ошибкой
-// Type 'string' is not assignable to type 'Icons'.
-const agendaItemIcons = {
-  registration: 'key',
-  opening: 'cal-sm',
-  talk: 'tv',
-  break: 'clock',
-  coffee: 'coffee',
-  closing: 'key',
-  afterparty: 'cal-sm',
-  other: 'cal-sm',
-} // as const
-
-const icon = computed(() => agendaItemIcons[props.agendaItem.type])
-const title = computed(() => agendaItemDefaultTitles[props.agendaItem.type])
 </script>
 
 <template>
