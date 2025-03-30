@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Slot, VNode } from 'vue'
+import type { Slot } from 'vue'
 
 export interface UiFormGroupProps {
   for: string
