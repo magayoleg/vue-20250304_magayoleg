@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { VNode } from 'vue'
+import type { Slot, VNode } from 'vue'
 
 export interface UiFormGroupProps {
   for: string
@@ -13,10 +13,10 @@ export interface UiFormGroupProps {
 const props = defineProps<UiFormGroupProps>()
 
 defineSlots<{
-  default: () => VNode[]
-  label: () => VNode
-  description: () => VNode
-  invalid: () => VNode
+  default: Slot
+  label?: Slot
+  description?: Slot
+  invalid?: Slot
 }>()
 </script>
 

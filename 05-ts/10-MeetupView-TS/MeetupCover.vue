@@ -1,17 +1,15 @@
 <script lang="ts">
 import { computed } from 'vue'
-import type { PropType } from 'vue'
-import type { ValuesUnionTitlesType, ValuesUnionIconsType } from './Consts'
 
 export default {
   props: {
     title: {
-      type: String as PropType<ValuesUnionTitlesType>,
+      type: String,
       required: true,
     },
 
     image: {
-      type: String as PropType<ValuesUnionIconsType>,
+      type: String,
     },
   },
 
